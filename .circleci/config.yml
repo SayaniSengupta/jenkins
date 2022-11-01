@@ -35,6 +35,7 @@ jobs:
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - run: |
            curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
+           FOSSA_API_KEY=8ffb6c4847b8a873e0fbccc8a16d3527 fossa analyze
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: pytest
