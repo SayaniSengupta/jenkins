@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.18
+      - image: cimg/python:3.10.2
     steps:
       - run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
@@ -13,12 +13,12 @@ jobs:
           working_directory: jenkins
   test:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10.2
     steps:
       - checkout
       # - run: <test command>
       - run:
-          command: fossa test
+          command: fossa analyze
           working_directory: jenkins
 workflows:
   version: 2
