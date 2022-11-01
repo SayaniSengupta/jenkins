@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: python manage.py runserver
       - run:
-          command: fossa analyze
+          command: FOSSA_API_KEY=8ffb6c4847b8a873e0fbccc8a16d3527 fossa analyze
           working_directory: SayaniSengupta/jenkins
   test:
     docker:
@@ -18,7 +18,7 @@ jobs:
       - checkout
       # - run: <test command>
       - run:
-          command: fossa analyze
+          command: FOSSA_API_KEY=8ffb6c4847b8a873e0fbccc8a16d3527 fossa analyze
           working_directory: SayaniSengupta/jenkins
 workflows:
   version: 2
